@@ -221,14 +221,16 @@ WordPressのコーディング基準に反しており、高機能なものほ�
 
 メンテナンス表示用の.htaccessのコード
 
-> ErrorDocument 503 /maintenance.html
-> 
-> &lt;IfModule mod_rewrite.c&gt;
->   RewriteEngine On
->   RewriteCond %{REQUEST_URI} !=/maintenance.html
->   RewriteCond %{REMOTE_ADDR} !=管理者のIPアドレス
->   RewriteRule ^.*$ - [R=503,L]
-> &lt;/IfModule&gt;
+```
+ErrorDocument 503 /maintenance.html
+
+&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteCond %{REQUEST_URI} !=/maintenance.html
+  RewriteCond %{REMOTE_ADDR} !=管理者のIPアドレス
+  RewriteRule ^.*$ - [R=503,L]
+&lt;/IfModule&gt;
+```
 
 [Webサイトのメンテナンス中画面を出す正しい作法と.htaccessの書き方](http://web-tan.forum.impressrd.jp/e/2009/06/16/5880)より。
 
